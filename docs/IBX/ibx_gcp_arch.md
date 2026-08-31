@@ -8,7 +8,7 @@
 * **Operational Admin Bottleneck:** Cloud Admins spend 60–80% of their bandwidth on manual, repetitive Terraform updates, delaying critical P1 incident responses and strategic platform enhancements.
 * **Configuration Drift & Human Error:** Manual service deployments lead to missing security controls (e.g., DevOps missing VPC Access Connectors on Cloud Run instances or exposing public IP addresses on VMs).
 * **Pipeline Collisions & Lock Contention:** Monolithic Terraform state files and shared execution branches cause frequent state lock failures and Git merge conflicts when multiple teams request resources simultaneously[cite: 3].
-* **Long-Lived Credentials:** Legacy automation relies on static Service Account keys stored in CI/CD secrets, presenting continuous security and audit risks[cite: 4, 5].
+* **Long-Lived Credentials:** Legacy automation relies on static Service Account keys stored in CI/CD secrets, presenting continuous security and audit risks.
 
 ---
 
