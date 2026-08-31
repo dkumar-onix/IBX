@@ -9,7 +9,7 @@
 
 ---
 
-## 1. Executive Summary & Core Pain Points
+## 1. Summary & Core Pain Points
 
 ### Core Pain Points
 * **Operational Admin Bottleneck:** Cloud Admins spend 60–80% of their bandwidth on manual, repetitive Terraform updates, delaying critical P1 incident responses and strategic platform enhancements.
