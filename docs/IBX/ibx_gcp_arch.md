@@ -2,8 +2,6 @@
 
 # End-to-End GCP Platform Engineering & Automated Provisioning Architecture
 
----
-
 ## 1. Summary & Core Pain Points
 
 ### Core Pain Points
