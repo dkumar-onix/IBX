@@ -2,11 +2,6 @@
 
 # End-to-End GCP Platform Engineering & Automated Provisioning Architecture
 
-**Document Version:** 1.0 (Final Architecture Blueprint)
-**Target Organization:** Independence Blue Cross (IBX)
-**Scope:** Multi-Project, Multi-Service, Multi-Module Automation
-**Alignment:** IBX Managed Services SOW (2026–2029)[cite: 1, 6]
-
 ---
 
 ## 1. Summary & Core Pain Points
