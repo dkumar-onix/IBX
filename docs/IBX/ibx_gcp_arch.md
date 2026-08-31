@@ -14,10 +14,10 @@
 
 ## 2. Strategic Objectives (What We Are Solving)
 
-* **Zero-Touch Provisioning:** Provide a self-service workflow via ServiceNow that automatically provisions GCP infrastructure without manual Cloud Admin intervention[cite: 5].
-* **Multi-Tenant State Isolation:** Architect a dynamic, multi-project monorepo where state files are isolated per GCP project, preventing cross-environment blast radiuses[cite: 3].
-* **Shift-Left Security & Governance:** Enforce Policy-as-Code guardrails (OPA/Checkov) inside the PR stage to block non-compliant resources before GCP API execution[cite: 4].
-* **Immutable & Scalable Architecture:** Standardize infrastructure modules through Git-tagged semantic releases (`infra-modules`) consumed by environment-specific leaf declarations (`infra-live`)[cite: 3, 4].
+* **Zero-Touch Provisioning:** Provide a self-service workflow via ServiceNow that automatically provisions GCP infrastructure without manual Cloud Admin intervention.
+* **Multi-Tenant State Isolation:** Architect a dynamic, multi-project monorepo where state files are isolated per GCP project, preventing cross-environment blast radiuses.
+* **Shift-Left Security & Governance:** Enforce Policy-as-Code guardrails (OPA/Checkov) inside the PR stage to block non-compliant resources before GCP API execution.
+* **Immutable & Scalable Architecture:** Standardize infrastructure modules through Git-tagged semantic releases (`infra-modules`) consumed by environment-specific leaf declarations (`infra-live`).
 
 ---
 
@@ -25,8 +25,8 @@
 
 | Architectural Component | Current Proposed Strategy | Next-Gen Enterprise Solution (Recommended) | Architectural Advantage |
 | :--- | :--- | :--- | :--- |
-| **Event Orchestration** | ServiceNow → GCP Pub/Sub → Cloud Run Python Orchestrator → GitHub | ServiceNow Flow Designer → GitHub `repository_dispatch` (OIDC App Token)[cite: 5] | **Zero Middleware Maintenance:** Eliminates custom Cloud Run container maintenance; uses push-based native API integration[cite: 5]. |
-| **Git & Branch Strategy** | Direct commits/pushes to `dev` branch with `--rebase` retry loops | Feature Branches (`feat/SNOW-123`) → Automated PRs → Trunk-based `main`[cite: 4] | **Collision Resistance:** Eliminates Git push race conditions and forces PR code reviews + pre-apply checks[cite: 3, 4]. |
+| **Event Orchestration** | ServiceNow → GCP Pub/Sub → Cloud Run Python Orchestrator → GitHub | ServiceNow Flow Designer → GitHub `repository_dispatch` (OIDC App Token) | **Zero Middleware Maintenance:** Eliminates custom Cloud Run container maintenance; uses push-based native API integration. |
+| **Git & Branch Strategy** | Direct commits/pushes to `dev` branch with `--rebase` retry loops | Feature Branches (`feat/SNOW-123`) → Automated PRs → Trunk-based `main` | **Collision Resistance:** Eliminates Git push race conditions and forces PR code reviews + pre-apply checks. |
 | **Execution Engine** | Split across GitHub and GCP Cloud Build | Native GitHub Actions powered by Workload Identity Federation (WIF)[cite: 4, 5] | **Single Plane of Glass:** Consolidates logs, execution traces, and PR plan comments in one platform without long-lived keys[cite: 4, 5]. |
 | **IaC State Management** | Centralized Terraform state / tfvars append loops[cite: 5] | Terragrunt Monorepo with dynamic per-project backend derivation (`tfstate-<project_id>`)[cite: 3] | **Blast Radius Containment:** Sub-second plans, isolated state locks, and zero cross-project state dependencies[cite: 3]. |
 | **Security Enforcement** | Manual review or post-apply audit | CI Pipeline Policy-as-Code (Checkov / OPA / TFLint)[cite: 4] | **Preventative Governance:** Blocks unencrypted storage, public IPs, or missing VPC connectors at PR time[cite: 4]. |
